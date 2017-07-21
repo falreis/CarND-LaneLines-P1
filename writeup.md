@@ -1,8 +1,6 @@
 # **Finding Lane Lines on the Road** 
 
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
+## Writeup
 
 ---
 
@@ -38,21 +36,24 @@ My pipeline consisted of 5 steps. The steps I followed were:
 7. Writing of the support lines (with transparency);
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function to find the support lines.
+
 The support lines was generated using linear regression of the line segments detected.
-Firsty, I splitted the segments in two groups: The Left Lane and the Rigth Lane, using the slope of each segment.
-Secondly, I rejected some segments. Segments wiht positive slope on the right lane or negative slope in the left lane were rejected. This small step had the goal to avoid noises.
-Thirdly, I generate the support lines using python polyfit function.
-Endly, I draw the lines and define a transparency mask.
+* Firsty, I splitted the segments in two groups: The Left Lane and the Rigth Lane, using the slope of each segment.
+* Secondly, I rejected some segments. Segments wiht positive slope on the right lane or negative slope in the left lane were rejected. This small step had the goal to avoid noises.
+* Thirdly, I generate the support lines using python polyfit function.
+* Endly, I draw the lines and define a transparency mask.
 
 
 ### 2. Identify potential shortcomings with your current pipeline
 
 
 One potential shortcoming would be what would happen when the road have closed curves. With the closed curves, it's possible that linear regression doesn't work well.
+
 Another shortcoming could be identify small line segments in roads with lot of marks on asphalt.
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to use different methods to connect segments of lines that adpats on curves or any kind of situation. In this scenario, it's possible to use polinomial regression or 
+A possible improvement would be to use different methods to connect segments of lines that adpats on curves or any kind of situation. In this scenario, it's possible to use polinomial regression.
+
 Another potential improvement could be try to identify the lines with dynamic parameters that adapts on different images, from different camera positions in differents cars.
